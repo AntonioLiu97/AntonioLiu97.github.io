@@ -2091,7 +2091,7 @@ input, select, textarea {
 		padding: 0 2rem;
 		text-align: center;
 		text-decoration: none;
-		text-transform: uppercase;
+		text-transform: none;
 		white-space: nowrap;
 	}
 
@@ -3760,7 +3760,7 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		background-color: rgba(255, 255, 255, 0.9);
+		background-color: rgba(255,255,255, 0.9);
 		position: relative;
 		margin: 0 auto;
 		width: calc(100% - 4rem);
@@ -3770,7 +3770,8 @@ input, select, textarea {
 
 		#main > * {
 			padding: 4rem 4rem 2rem 4rem ;
-			border-top: solid 2px #eeeeee;
+			border-top: solid 5px ;
+			border-color: rgba(100,100,100,0.9);
 			margin: 0;
 		}
 
@@ -3866,10 +3867,10 @@ input, select, textarea {
 			}
 
 			#main > .posts > article {
-				border-color: #eeeeee;
-				border-left-width: 2px;
+				border-color: rgba(100,100,100,0.5);
+				border-left-width: 5px;
 				border-style: solid;
-				border-top-width: 2px;
+				border-top-width: 5px;
 				text-align: center;
 			}
 
