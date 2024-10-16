@@ -11,6 +11,40 @@
 		<link rel="stylesheet" href="assets/css/research.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		<style>
+			.image-container {
+				position: relative;
+				width: 100%;
+				margin-bottom: 5px; /* Reduce space below the image container */
+			}
+		
+			figcaption {
+				text-align: center;
+				font-weight: bold;
+				font-size: 0.9em; /* Smaller font size */
+				margin-top: -50px; /* Reduced top margin to bring it closer to the image */
+				color: #666;
+			}
+
+			.main-image {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
+
+			.legend-image {
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+				width: 25%;  /* Adjust this value to change the legend size */
+				max-width: 130px;  /* Adjust this value as needed */
+				height: auto;
+				background-color: rgba(255, 255, 255, 0.7);  /* semi-transparent white background */
+				padding: 5px;
+
+				
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -55,65 +89,64 @@
 						<!-- Posts -->
 						<section class="posts">
 
-							<!-- <article>
-								<header>
-									<h2><a href="#">Density estimation with LLMs<br />
-								</header>								
-								<a href="#" class="image fit"><img src="images/digit0127_alpha1_slow_manifold_cropped.gif" alt="" /></a>
-								<p> 
-									How do abstract thoughts differ from concrete memories? 
-									Considering memories as fixed points within the brain's dynamical system, 
-									we propose to understand abstraction as a hierarchy of slow manifolds,
-									which serve as coarse-grained roadmaps to these fixed points.
-								</p>
-								<p>
-									We construct a diffusion RNN (Recurrent Neural Network), 
-									a neural-dynamical model that can perform memorization and abstraction. 
-								</p>
-								<p>
-									We demonstrate diffusion RNN’s ability to perform dimensionality reduction on the MNIST dataset.
-								</p>
-								<p>
-									We present an analytic theory that elucidates the relation between the distribution of data
-									and the learned slow manifolds.
-								</p>
-								<ul class="actions special">
-									<li><a href="https://arxiv.org/abs/2410.05218" class="button">Arxiv Preprint</a></li>
-								</ul>
-
-							</article> -->
-
 							<article>
 								<header>
-									<h2><a href="#">Diffusion RNN: a model of memory and abstraction<br />
+									<h2></a>Density estimation with LLMs: visualizing in-context learning trajectories<br />
+									<!-- <h2><a href="#"></a>Density estimation with LLMs: visualizing in-context learning trajectories<br /> -->
 								</header>								
-								<a href="#" class="image fit"><img src="images/digit0127_alpha1_slow_manifold_cropped.gif" alt="" /></a>
+								<div class="image-container">
+									<a href="#" class="image fit">
+										<img src="images/LLM_InPCA.gif" alt="" style="object-fit: cover; object-position: center; height: 350px; width: 100%;" class="main-image" />
+										<img src="images/LLM_InPCA_legend.png" alt="" class="legend-image" />										
+									</a>
+									<figcaption>In-context DE trajectory of LLaMA 2-70b, compared to Gaussian KDE and Bayesian histogram.</figcaption>
+								</div>
+								<br>
 								<p> 
-									How do abstract thoughts differ from concrete memories? 
-									Considering memories as fixed points within the brain's dynamical system, 
-									we propose to understand abstraction as a hierarchy of slow manifolds,
-									which serve as coarse-grained roadmaps to these fixed points.
+									How do large language models (LLMs) estimate probability densities from in-context data?
 								</p>
-								<p>
-									We construct a diffusion RNN (Recurrent Neural Network), 
-									a neural-dynamical model that can perform memorization and abstraction. 
+								<p> 
+									We leverage the Intensive Principal Component Analysis to visualize the density estimation (DE) process of LLMs.
+									This geometric investigation leads to a natural interpretation of LLM's DE process as a kernel density estimator with adaptive kernel width and shape.
 								</p>
-								<p>
-									We demonstrate diffusion RNN’s ability to perform dimensionality reduction on the MNIST dataset.
-								</p>
-								<p>
-									We present an analytic theory that elucidates the relation between the distribution of data
-									and the learned slow manifolds.
-								</p>
+							
 								<ul class="actions special">
-									<li><a href="https://march.aps.org/sessions/M28/12" class="button">APS Abstract</a></li>
+									<li><a href="https://arxiv.org/abs/2410.05218" class="button">Arxiv preprint</a></li>
 								</ul>
 
 							</article>
 
 							<article>
 								<header>
-									<h2><a href="#">In-context neural scaling law<br />
+									<h2>Diffusion RNN: a model of memory and abstraction<br />
+								</header>								
+								<a href="#" class="image fit"><img src="images/digit0127_alpha1_slow_manifold_cropped.gif" alt="" /></a>
+								<!-- <figcaption>.</figcaption> -->
+								<br>
+								<p> 
+									What makes abstract thoughts different from concrete memories? 
+									Considering memories as fixed points within the brain's dynamical system, 
+									we propose to understand abstraction as a hierarchy of slow manifolds,
+									which serve as coarse-grained roadmaps to these fixed points.
+								</p>
+								<p>
+									We construct a diffusion RNN (Recurrent Neural Network), 
+									a neural-dynamical model that can perform memorization and abstraction, and 
+									demonstrate its ability to perform dimensionality reduction on the MNIST dataset.
+								</p>
+								<p>
+									Finally, we present an analytic theory that elucidates the relation between the distribution of data
+									and the learned slow manifolds.
+								</p>
+								<ul class="actions special">
+									<li><a href="https://march.aps.org/sessions/M28/12" class="button">APS 2024 Abstract</a></li>
+								</ul>
+
+							</article>
+
+							<article>
+								<header>
+									<h2>In-context neural scaling law<br />
 								</header>
 								
 								<a href="#" class="image fit"><img src="images/BM_snapshots.gif" alt="" /></a>				
@@ -124,7 +157,9 @@
 								</p>
 								<ul class="actions special">
 									<li><a href="https://github.com/AntonioLiu97/llmICL" class="button">GitHub</a></li>
-									<li><a href="https://openreview.net/pdf?id=7ddHgoNDFQ" class="button">EMNLP Paper</a></li>
+									<!-- <li><a href="https://openreview.net/pdf?id=7ddHgoNDFQ" class="button">EMNLP 2024 Paper</a></li> -->
+									<li><a href="https://arxiv.org/pdf/2402.00795" class="button">Arxiv preprint</a></li>
+									
 								</ul>
 							</article>
 
@@ -141,20 +176,22 @@
 										shadows formed by a light source and opaque objects.
 									</p>
 									<ul class="actions special">
-										<li><a href="https://openreview.net/pdf?id=zbKcFZ6Dbp" class="button">ICLR Paper</a></li>
+										<li><a href="https://openreview.net/pdf?id=zbKcFZ6Dbp" class="button">ICLR 2024 Paper</a></li>
 										<li><a href="https://www.geogebra.org/classic/rc77cvgy" class="button">interactive demo</a></li>
 									</ul>
 								</article>
 								
 								<article>
 									<header>
-										<h2><a href="#">Anticipatory waves in a gigantic marine algae<br />
+										<h2>Anticipatory waves in a gigantic marine algae<br />
 									</header>
 									<!-- <a href="#" class="image fit"><img src="images/caulerpa_latent_space.png" alt="" /></a> -->
 									<a <a class="image fit"><img src="images/caulerpa_cg.png" alt="" /></a>						
-									<p>How do plants anticipate external environemnts and regulate internal states? Using coarse-grained 
-										analysis and illumination perturbations, we identify wave-like circadian patterns coupled to 
-										an internal oscillator and entrained by external illuminations.
+									<p>How do plants anticipate external environemnts and regulate internal states? </p>
+									<p>
+										We perturb marine algae with patterned illumination, and analyze the response dynamics using 
+										image analysis and reduced-dimension observables.
+										Our experiment and analysis unveils wave-like patterns entrained by external illuminations, and coupled to a circadian internal oscillator.
 									</p>
 									<ul class="actions special">
 										<li><a href="http://links.springernature.com/f/a/qLRZpXBklOOGj6f6Mjb-Bw~~/AABE5gA~/RgRnAFe-P0SgaHR0cHM6Ly93d3cubmF0dXJlLmNvbS9hcnRpY2xlcy9zNDE0NjctMDIzLTQxODEzLTY_dXRtX3NvdXJjZT1yY3RfY29uZ3JhdGVtYWlsdCZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1vYV8yMDIzMTAwNCZ1dG1fY29udGVudD0xMC4xMDM4L3M0MTQ2Ny0wMjMtNDE4MTMtNlcDc3BjQgplHb7SHWWIqI16UhRlbGRhZC5hZmlrQGdtYWlsLmNvbVgEAAAHLQ~~" class="button">nature communications</a></li>
@@ -205,7 +242,7 @@
 						<section class="split contact">
 
 							<section>
-								<h3>Last update: March 2024</h3>
+								<h3>Last update: October 2024</h3>
 							</section>
 
 							<section>
