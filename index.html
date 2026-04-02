@@ -44,6 +44,14 @@
 
 				
 			}
+
+			#main .post.featured .featured-bio {
+				text-align: left;
+				max-width: 40rem;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
 		</style>
 	</head>
 	<body class="is-preload">
@@ -78,12 +86,26 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Featured Post -->
+						<!-- Featured Post: bio (full page still at About_Me.html) -->
 						<!-- <article class="post featured">
 							<header class="major">
-								<h2> News </h2>
-								<p>* Wait... you are looking for a research gallery? Fine, click <a href="index.html"><i>here</i></a>.</p>
+								<h2>Toni J.B. Liu</h2>
 							</header>
+							<div class="image main" style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+								<img src="images/profile_close.jpg" style="width: 30%; max-width: 220px; border-radius: 50%;" alt="Portrait of Toni J.B. Liu" />
+							</div>
+							<div class="featured-bio">
+								<p style="margin-top: 0rem;">I am a fourth year physics PhD student at Cornell University, advised by Professor <a href="https://www.duffield.cornell.edu/people/christopher-j-earls/">Chris Earls</a>.
+									Broadly speaking, I am interested in using machine learning to understand physical systems, and using
+									physics and dynamical system theory to understand how machines learn.
+								</p>
+								<p>
+									I received my B.S. in applied physics from Caltech, and B.A. in physics and film studies from Wesleyan University.
+								</p>
+								<p>
+									Want to know more? Check out my <a href="https://scholar.google.com/citations?user=UbtOpwcAAAAJ&amp;hl=en">Google Scholar</a> and <a href="files/Toni_Liu_CV.pdf">curriculum vitae</a>.
+								</p>
+							</div>
 						</article> -->
 
 						<!-- Posts -->
@@ -91,8 +113,35 @@
 
 							<article>
 								<header>
-									<h2></a>Density estimation with LLMs: visualizing in-context learning trajectories<br />
-								</header>								
+									<h2>Jacobian Scopes<br />
+								</header>
+								<p>
+									When an LLM produces an answer, which parts of the input prompt informed that decision?
+									<br/><br/>
+									JacobianScope is a way to compute how much perturbing each input token affects a given target token.
+									In practice, we project each Jacobian along a probe vector of interest to calculate token-level influence scores. 
+									This is computationally efficient and yields really interesting results for causal attribution.
+								</p>
+								<a href="https://huggingface.co/spaces/Typony/JacobianScopes" class="image fit"><img src="images/liberal_conservative.png" alt="Jacobian Scope visualization: per-token influence on predicting liberal versus conservative from the same prompt." /></a>
+								<figcaption>Semantic Scope reveals the potential for political bias that may be present in models such as LLaMA3.2. The prediction for the subject being a “liberal” is
+									attributed to the input token “Columbia”, while “conservative” to the token pairs for “the South”.</figcaption>
+								<br>
+								<ul class="actions special">
+									<li><a href="https://huggingface.co/spaces/Typony/JacobianScopes" class="button">Live demo (Hugging Face)</a></li>
+									<li><a href="https://github.com/AntonioLiu97/JacobianScopes" class="button">GitHub</a></li>
+									<li><a href="https://arxiv.org/abs/2601.16407" class="button">Paper</a></li>
+								</ul>
+							</article>							
+
+							<article>
+								<header>
+									<h2></a>In-context learning trajectories of LLMs<br />
+								</header>	
+								<p> 
+									How do large language models learn from in-context data? <br/><br/>
+									We leverage the Intensive Principal Component Analysis to visualize how LLMs estimate the probability density underlying input data.
+									Our geometric investigation leads to a natural interpretation of LLM's inference process as a kernel density estimator with adaptive kernel width and shape.
+								</p>															
 								<div class="image-container">
 									<a href="#" class="image fit">
 										<img src="images/LLM_InPCA.gif" alt="" style="object-fit: cover; object-position: center; height: 350px; width: 100%;" class="main-image" />
@@ -101,29 +150,21 @@
 									<figcaption>In-context DE trajectory of LLaMA 2-70b, compared to Gaussian KDE and Bayesian histogram.</figcaption>
 								</div>
 								<br>
-								<p> 
-									How do large language models (LLMs) estimate probability densities from in-context data?
-								</p>
-								<p> 
-									We leverage the Intensive Principal Component Analysis to visualize the density estimation (DE) process of LLMs.
-									This geometric investigation leads to a natural interpretation of LLM's DE process as a kernel density estimator with adaptive kernel width and shape.
-								</p>
+
 							
 								<ul class="actions special">
-									<li><a href="https://openreview.net/forum?id=semTHoVGsJ" class="button">ICLR 2025</a></li>
+									<li><a href="https://openreview.net/forum?id=semTHoVGsJ" class="button">ICLR 2025 Paper</a></li>
 									<li><a href="https://github.com/AntonioLiu97/LLMICL_inPCA" class="button">GitHub</a></li>
 
 								</ul>
 
 							</article>
 
+
 							<article>
 								<header>
-									<h2>Diffusion RNN: a model of memory and abstraction<br />
-								</header>								
-								<a href="#" class="image fit"><img src="images/digit0127_alpha1_slow_manifold_cropped.gif" alt="" /></a>
-								<figcaption>Diffusion RNN extracts a hierarchy of slow manifolds (red) from dimensionally reduced MNIST data.</figcaption>
-								<br>
+									<h2>Diffusion RNN: a model of memory and imagination<br />
+								</header>	
 								<p> 
 									What makes abstract thoughts different from concrete memories? 
 									Considering memories as fixed points within the brain's dynamical system, 
@@ -138,7 +179,11 @@
 								<p>
 									Finally, we present an analytic theory that elucidates the relation between the distribution of data
 									and the learned slow manifolds.
-								</p>
+								</p>															
+								<a href="#" class="image fit"><img src="images/digit0127_alpha1_slow_manifold_cropped.gif" alt="" /></a>
+								<figcaption>Diffusion RNN extracts a hierarchy of slow manifolds (red) from dimensionally reduced MNIST data.</figcaption>
+								<br>
+
 								<ul class="actions special">
 									<li><a href="https://march.aps.org/sessions/M28/12" class="button">APS 2024 Abstract</a></li>
 								</ul>
@@ -149,13 +194,18 @@
 								<header>
 									<h2>In-context neural scaling law<br />
 								</header>
-								
-								<a href="#" class="image fit"><img src="images/BM_snapshots.gif" alt="" /></a>				
-								<a href="#" class="image fit"><img src="images/ICL_power_law_stochastic.png" alt="" /></a>
-								<p> Could a pretrained LLM make sense of an unseen, synthetic language, say, a chain of symbols generated by a random Markov process? 
+								<p> Could a pretrained LLM make sense of an unseen, synthetic language, such as, a chain of symbols generated by a random Markov process? 
+									<br/><br/>
 									Yes. In fact, we show that LLaMA 2 models possess uncanny abilities to in-context learn
-									a variety of stochstic systems, physical and symbolic. Our observation reveals an in-context version of neural scaling law.
-								</p>
+									a variety of stochastic systems, physical and symbolic. Our observation reveals an in-context version of neural scaling law.
+								</p>								
+								<a href="#" class="image fit"><img src="images/BM_snapshots.gif" alt="" /></a>				
+								<!-- <a href="#" class="image fit"><img src="images/ICL_power_law_stochastic.png" alt="" /></a> -->
+								<iframe width="900" height="480" src="https://www.youtube.com/embed/HYUOCKE_4hU?si=aiuINP9gZ32fg0Vw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								
+								<figcaption style="text-align: center; margin-top: 10px;">EMNLP Oral Recording</figcaption>								 
+
+								<br/>
 								<ul class="actions special">
 									<li><a href="https://github.com/AntonioLiu97/llmICL" class="button">GitHub</a></li>
 									<li><a href="https://aclanthology.org/2024.emnlp-main.842/" class="button">EMNLP 2024 Paper</a></li>
@@ -163,22 +213,29 @@
 									<!-- <li><a href="https://arxiv.org/pdf/2402.00795" class="button">Arxiv preprint</a></li> -->
 									
 								</ul>
-								<iframe width="560" height="315" src="https://www.youtube.com/embed/HYUOCKE_4hU?si=aiuINP9gZ32fg0Vw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-								<figcaption style="text-align: center; margin-top: 10px;">EMNLP Oral Recording</figcaption>
+
 							</article>
 
 								<article>
 									<header>
-										<h2><a href="#">Embedding partial relations in hyperbolic space<br />
+										<h2><a href="#">Learning in hyperbolic space<br />
 									</header>
-									<a href="#" class="image fit"><img src="images/shadow_cone.png" alt="" /></a>
 									<p>
-										In hyperbolic space, the volume of a ball grows exponentially with its radius, which mirrors the number of 
-										nodes in a tree. 
-										<!-- Can we take advantage of hyperbolic space to embed tree-like data structures?  -->
-										We provide a fast and intuitive embedding scheme by thinking of parent-child relations as subset relations between 
-										shadows formed by a light source and opaque objects.
-									</p>
+										In Euclidean space, the volume of a ball grows polynomially with its radius — but in hyperbolic space, 
+										it grows exponentially. This mirrors a fundamental property of trees: the number of nodes at depth 
+										<em>d</em> grows exponentially with <em>d</em>. This geometric advantage makes hyperbolic space 
+										a natural host for embedding hierarchical data. <br/><br/>
+										
+										We embed hierarchical data by casting shadows: a light source projects opaque objects onto a plane, where 
+										parent-child relationships correspond to shadow containment — a child node is represented by an object 
+										whose shadow falls entirely within its parent's. <br/><br/>
+										
+										This geometric picture yields a fast embedding algorithm: to embed a tree, one simply places 
+										objects such that the containment constraints are satisfied, with deeper nodes casting smaller, 
+										nested shadows. <br/><br/>
+									</p>									
+									<a href="#" class="image fit"><img src="images/shadow_cone.png" alt="" /></a>
+
 									<ul class="actions special">
 										<li><a href="https://openreview.net/pdf?id=zbKcFZ6Dbp" class="button">ICLR 2024 Paper</a></li>
 										<li><a href="https://www.geogebra.org/classic/rc77cvgy" class="button">interactive demo</a></li>
@@ -189,14 +246,15 @@
 									<header>
 										<h2>Anticipatory waves in a gigantic marine algae<br />
 									</header>
-									<!-- <a href="#" class="image fit"><img src="images/caulerpa_latent_space.png" alt="" /></a> -->
-									<a <a class="image fit"><img src="images/caulerpa_cg.png" alt="" /></a>						
 									<p>How do plants anticipate external environemnts and regulate internal states? </p>
 									<p>
 										We perturb marine algae with patterned illumination, and analyze the response dynamics using 
 										image analysis and reduced-dimension observables.
 										Our experiment and analysis unveils wave-like patterns entrained by external illuminations, and coupled to a circadian internal oscillator.
-									</p>
+									</p>									
+									<!-- <a href="#" class="image fit"><img src="images/caulerpa_latent_space.png" alt="" /></a> -->
+									<a <a class="image fit"><img src="images/caulerpa_cg.png" alt="" /></a>						
+
 									<ul class="actions special">
 										<li><a href="http://links.springernature.com/f/a/qLRZpXBklOOGj6f6Mjb-Bw~~/AABE5gA~/RgRnAFe-P0SgaHR0cHM6Ly93d3cubmF0dXJlLmNvbS9hcnRpY2xlcy9zNDE0NjctMDIzLTQxODEzLTY_dXRtX3NvdXJjZT1yY3RfY29uZ3JhdGVtYWlsdCZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1vYV8yMDIzMTAwNCZ1dG1fY29udGVudD0xMC4xMDM4L3M0MTQ2Ny0wMjMtNDE4MTMtNlcDc3BjQgplHb7SHWWIqI16UhRlbGRhZC5hZmlrQGdtYWlsLmNvbVgEAAAHLQ~~" class="button">nature communications</a></li>
 									</ul>
@@ -246,7 +304,7 @@
 						<section class="split contact">
 
 							<section>
-								<h3>Last update: October 2024</h3>
+								<h3>Last update: April 2026</h3>
 							</section>
 
 							<section>
