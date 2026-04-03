@@ -117,7 +117,7 @@ input, select, textarea {
 /* Type */
 
 	html {
-		font-size: 16pt;
+		font-size: 22pt;
 	}
 
 		@media screen and (max-width: 1680px) {

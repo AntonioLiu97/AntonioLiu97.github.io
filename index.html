@@ -52,6 +52,22 @@
 				margin-right: auto;
 			}
 
+			.video-embed {
+				position: relative;
+				width: 100%;
+				max-width: 100%;
+				aspect-ratio: 16 / 9;
+				margin: 2.5rem 0;
+			}
+
+			.video-embed iframe {
+				position: absolute;
+				inset: 0;
+				width: 100%;
+				height: 100%;
+				border: 0;
+			}
+
 		</style>
 	</head>
 	<body class="is-preload">
@@ -201,7 +217,9 @@
 								</p>								
 								<a href="#" class="image fit"><img src="images/BM_snapshots.gif" alt="" /></a>				
 								<!-- <a href="#" class="image fit"><img src="images/ICL_power_law_stochastic.png" alt="" /></a> -->
-								<iframe width="900" height="480" src="https://www.youtube.com/embed/HYUOCKE_4hU?si=aiuINP9gZ32fg0Vw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								<div class="video-embed">
+									<iframe src="https://www.youtube.com/embed/HYUOCKE_4hU?si=aiuINP9gZ32fg0Vw" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								</div>
 								
 								<figcaption style="text-align: center; margin-top: 10px;">EMNLP Oral Recording</figcaption>								 
 
