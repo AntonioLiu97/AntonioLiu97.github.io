@@ -12,6 +12,16 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 		<style>
+			html {
+				scroll-behavior: smooth;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				html {
+					scroll-behavior: auto;
+				}
+			}
+
 			.image-container {
 				position: relative;
 				width: 100%;
@@ -52,20 +62,135 @@
 				margin-right: auto;
 			}
 
-			.video-embed {
-				position: relative;
-				width: 100%;
-				max-width: 100%;
-				aspect-ratio: 16 / 9;
-				margin: 2.5rem 0;
+			#main .post.featured .featured-bio p {
+				text-align: left;
 			}
 
-			.video-embed iframe {
-				position: absolute;
-				inset: 0;
-				width: 100%;
-				height: 100%;
-				border: 0;
+			#main > #about {
+				padding-bottom: 3rem;
+			}
+
+			#main > #about .about-header {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 2.5rem;
+				margin: 0 0 3rem 0;
+			}
+
+			#main > #about .about-header .about-portrait {
+				width: 220px;
+				max-width: 28%;
+				height: auto;
+				border-radius: 50%;
+				display: block;
+				flex-shrink: 0;
+			}
+
+			#main > #about .about-header header.major {
+				margin: 0;
+				min-width: 0;
+				text-align: left;
+			}
+
+			#main > #about .about-header header.major h2 {
+				margin: 0;
+			}
+
+			@media screen and (max-width: 736px) {
+
+				#main > #about .about-header {
+					flex-direction: column;
+					gap: 1.5rem;
+				}
+
+				#main > #about .about-header .about-portrait {
+					max-width: 55%;
+				}
+
+				#main > #about .about-header header.major {
+					text-align: center;
+				}
+
+			}
+
+			#main > #about .featured-bio ul.actions {
+				margin-bottom: 0;
+			}
+
+			#main > .highlights-index {
+				text-align: center;
+				max-width: 46rem;
+				margin: 0 auto;
+				border-top: 0;
+				padding-top: 0;
+				padding-bottom: 3.5rem;
+			}
+
+			.highlights-index .eyebrow {
+				font-size: 1.2rem;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: #212931;
+				margin: 0;
+			}
+
+			.highlights-index .eyebrow:before {
+				content: '';
+				display: block;
+				width: 28rem;
+				max-width: 100%;
+				height: 3px;
+				background-color: #0a7ea8;
+				margin: 0 auto 1.1rem auto;
+			}
+
+			.highlights-index .lede {
+				margin: 1rem 0 1.75rem 0;
+				color: #767c83;
+				font-size: 0.8rem;
+				font-style: italic;
+				text-align: center;
+			}
+
+			.highlights-index ol {
+				list-style: none;
+				counter-reset: highlight;
+				display: inline-block;
+				margin: 0;
+				padding-left: 0;
+				text-align: left;
+			}
+
+			.highlights-index ol li {
+				counter-increment: highlight;
+				padding-left: 0;
+				margin-bottom: 0.5rem;
+				line-height: 1.45;
+			}
+
+			.highlights-index ol li:last-child {
+				margin-bottom: 0;
+			}
+
+			.highlights-index ol li:before {
+				content: counter(highlight, decimal-leading-zero);
+				margin-right: 0.7rem;
+				color: #a2a9b0;
+				font-size: 0.7rem;
+				letter-spacing: 0.05em;
+			}
+
+			.highlights-index a {
+				border-bottom: solid 2px rgba(10, 126, 168, 0.3);
+			}
+
+			.highlights-index a:hover {
+				border-bottom-color: transparent;
+			}
+
+			#main > .posts > article {
+				scroll-margin-top: 5rem;
 			}
 
 		</style>
@@ -75,26 +200,20 @@
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Toni Liu</h1>
-						<p>Research projects from physics to learning systems</p>
-					</div>
-
+				<!-- Header -->
+					<header id="header">
+					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="index.html">Research Projects</a></li>
-							<!-- <li><a href="Literature_Notes.html">Literature Notes</a></li> -->
-							<li><a href="About_Me.html">About Me</a></li>
+							<li class="active"><a href="index.html">Home</a></li>
 							<li><a href="index_1.html">Gallery</a></li>
-
 						</ul>
 						<ul class="icons">
 							<!-- To hook social media: fill in hashtags -->
 							<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
-							<li><a href="www.linkedin.com/in/toni-jb-liu" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.linkedin.com/in/toni-jb-liu" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 							<li><a href="https://github.com/AntonioLiu97" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
@@ -102,41 +221,49 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Featured Post: bio (full page still at About_Me.html) -->
-						<!-- <article class="post featured">
-							<header class="major">
-								<h2>Toni J.B. Liu</h2>
-							</header>
-							<div class="image main" style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
-								<img src="images/profile_close.jpg" style="width: 30%; max-width: 220px; border-radius: 50%;" alt="Portrait of Toni J.B. Liu" />
+						<article class="post featured" id="about">
+							<div class="about-header">
+								<img class="about-portrait" src="images/profile_close.jpg" alt="Portrait of Toni J.B. Liu" />
+								<header class="major">
+									<h2>Toni J.B. Liu</h2>
+								</header>
 							</div>
 							<div class="featured-bio">
-								<p style="margin-top: 0rem;">I am a fourth year physics PhD student at Cornell University, advised by Professor <a href="https://www.duffield.cornell.edu/people/christopher-j-earls/">Chris Earls</a>.
-									Broadly speaking, I am interested in using machine learning to understand physical systems, and using
-									physics and dynamical system theory to understand how machines learn.
+								<p style="margin-top: 0rem;">I am a fifth-year physics PhD student at Cornell University, advised by Professor <a href="https://www.duffield.cornell.edu/people/christopher-j-earls/">Chris Earls</a>.
+									Broadly speaking, I am interested in using scientific methods to explain, improve, and safeguard the thinking process of AI, and in applying insights from AI to better model physical systems.
 								</p>
 								<p>
-									I received my B.S. in applied physics from Caltech, and B.A. in physics and film studies from Wesleyan University.
+									Prior to Cornell, I received my B.S. in applied physics from Caltech, and my B.A. in physics and film studies from Wesleyan University.
 								</p>
-								<p>
-									Want to know more? Check out my <a href="https://scholar.google.com/citations?user=UbtOpwcAAAAJ&amp;hl=en">Google Scholar</a> and <a href="files/Toni_Liu_CV.pdf">curriculum vitae</a>.
-								</p>
+								<ul class="actions special">
+									<li><a href="https://scholar.google.com/citations?user=UbtOpwcAAAAJ&amp;hl=en" class="button">Google Scholar</a></li>
+									<li><a href="files/Toni_Liu_CV.pdf" class="button">Curriculum Vitae</a></li>
+								</ul>
 							</div>
-						</article> -->
+						</article>
+
+						<section class="highlights-index" id="highlights">
+							<h3 class="eyebrow">Research Highlights</h3>
+							<p class="lede">A curated selection, not a <a href="https://scholar.google.com/citations?user=UbtOpwcAAAAJ&amp;hl=en">full publication list</a>.</p>
+							<ol>
+								<li><a href="#jacobian-scopes">Jacobian Scopes</a></li>
+								<li><a href="#incontext-density">LLMs think like a kernel machine</a></li>
+								<li><a href="#diffusion-rnn">Memory–abstraction trade-off in diffusion models</a></li>
+								<li><a href="#incontext-scaling">In-context neural scaling law</a></li>
+								<li><a href="#shadow-cones">Embedding and attention in non-Euclidean spaces</a></li>
+							</ol>
+						</section>
 
 						<!-- Posts -->
 						<section class="posts">
 
-							<article>
+							<article id="jacobian-scopes">
 								<header>
-									<h2>Jacobian Scopes<br />
+									<h2>Jacobian Scopes</h2>
 								</header>
 								<p>
-									When an LLM produces an answer, which parts of the input prompt informed that decision?
-									<br/><br/>
-									JacobianScope is a way to compute how much perturbing each input token affects a given target token.
-									In practice, we project each Jacobian along a probe vector of interest to calculate token-level influence scores. 
-									This is computationally efficient and yields really interesting results for causal attribution.
+									When an LLM answers, which prompt tokens drove that decision?
+									Jacobian Scopes attribute predictions—logits, full distributions, and uncertainty—to inputs via fast vector-Jacobian products, with strong performance on attribution benchmarks.
 								</p>
 								<a href="https://huggingface.co/spaces/Typony/JacobianScopes" class="image fit"><img src="images/liberal_conservative.png" alt="Jacobian Scope visualization: per-token influence on predicting liberal versus conservative from the same prompt." /></a>
 								<figcaption>Semantic Scope reveals the potential for political bias that may be present in models such as LLaMA3.2. The prediction for the subject being a “liberal” is
@@ -147,137 +274,97 @@
 									<li><a href="https://github.com/AntonioLiu97/JacobianScopes" class="button">GitHub</a></li>
 									<li><a href="https://arxiv.org/abs/2601.16407" class="button">Paper</a></li>
 								</ul>
-							</article>							
+							</article>
 
-							<article>
+							<article id="incontext-density">
 								<header>
-									<h2></a>In-context learning trajectories of LLMs<br />
-								</header>	
-								<p> 
-									How do large language models learn from in-context data? <br/><br/>
-									We leverage the Intensive Principal Component Analysis to visualize how LLMs estimate the probability density underlying input data.
-									Our geometric investigation leads to a natural interpretation of LLM's inference process as a kernel density estimator with adaptive kernel width and shape.
-								</p>															
+									<h2>LLMs think like a kernel machine</h2>
+								</header>
+								<p>
+									How do LLMs learn from in-context data?
+									Using Intensive Principal Component Analysis, we visualize their density-estimation trajectories and find an inference process akin to kernel regression, with a kernel whose width and shape adapt as evidence accumulates.
+								</p>
 								<div class="image-container">
 									<a href="#" class="image fit">
 										<img src="images/LLM_InPCA.gif" alt="" style="object-fit: cover; object-position: center; height: 350px; width: 100%;" class="main-image" />
-										<img src="images/LLM_InPCA_legend.png" alt="" class="legend-image" />										
+										<img src="images/LLM_InPCA_legend.png" alt="" class="legend-image" />
 									</a>
 									<figcaption>In-context DE trajectory of LLaMA 2-70b, compared to Gaussian KDE and Bayesian histogram.</figcaption>
 								</div>
 								<br>
-
-							
 								<ul class="actions special">
 									<li><a href="https://openreview.net/forum?id=semTHoVGsJ" class="button">ICLR 2025 Paper</a></li>
 									<li><a href="https://github.com/AntonioLiu97/LLMICL_inPCA" class="button">GitHub</a></li>
-
 								</ul>
-
 							</article>
 
-
-							<article>
+							<article id="diffusion-rnn">
 								<header>
-									<h2>Diffusion RNN: a model of memory and imagination<br />
-								</header>	
-								<p> 
-									What makes abstract thoughts different from concrete memories? 
-									Considering memories as fixed points within the brain's dynamical system, 
-									we propose to understand abstraction as a hierarchy of slow manifolds,
-									which serve as coarse-grained roadmaps to these fixed points.
-								</p>
+									<h2>Memory–abstraction trade-off in diffusion models</h2>
+								</header>
 								<p>
-									We construct a diffusion RNN (Recurrent Neural Network), 
-									a neural-dynamical model that can perform memorization and abstraction, and 
-									demonstrate its ability to perform dimensionality reduction on the MNIST dataset.
+									What separates abstract thoughts from concrete memories?
+									Treating memories as fixed points, we cast abstraction as a hierarchy of slow manifolds and build a diffusion RNN that extracts them from data—with an analytic theory linking data distributions to the learned manifolds.
 								</p>
-								<p>
-									Finally, we present an analytic theory that elucidates the relation between the distribution of data
-									and the learned slow manifolds.
-								</p>															
 								<a href="#" class="image fit"><img src="images/digit0127_alpha1_slow_manifold_cropped.gif" alt="" /></a>
 								<figcaption>Diffusion RNN extracts a hierarchy of slow manifolds (red) from dimensionally reduced MNIST data.</figcaption>
 								<br>
-
 								<ul class="actions special">
 									<li><a href="https://march.aps.org/sessions/M28/12" class="button">APS 2024 Abstract</a></li>
 								</ul>
-
 							</article>
 
-							<article>
+							<article id="incontext-scaling">
 								<header>
-									<h2>In-context neural scaling law<br />
+									<h2>In-context neural scaling law</h2>
 								</header>
-								<p> Could a pretrained LLM make sense of an unseen, synthetic language, such as, a chain of symbols generated by a random Markov process? 
-									<br/><br/>
-									Yes. In fact, we show that LLaMA 2 models possess uncanny abilities to in-context learn
-									a variety of stochastic systems, physical and symbolic. Our observation reveals an in-context version of neural scaling law.
-								</p>								
-								<a href="#" class="image fit"><img src="images/BM_snapshots.gif" alt="" /></a>				
+								<p>
+									Can a pretrained LLM make sense of an unseen synthetic language—say, symbols from a random Markov process?
+									LLaMA&nbsp;2 models in-context learn a range of stochastic systems, physical and symbolic, revealing an in-context neural scaling law.
+								</p>
+								<a href="#" class="image fit"><img src="images/BM_snapshots.gif" alt="" /></a>
 								<!-- <a href="#" class="image fit"><img src="images/ICL_power_law_stochastic.png" alt="" /></a> -->
-								<div class="video-embed">
-									<iframe src="https://www.youtube.com/embed/HYUOCKE_4hU?si=aiuINP9gZ32fg0Vw" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-								</div>
-								
-								<figcaption style="text-align: center; margin-top: 10px;">EMNLP Oral Recording</figcaption>								 
-
 								<br/>
 								<ul class="actions special">
 									<li><a href="https://github.com/AntonioLiu97/llmICL" class="button">GitHub</a></li>
 									<li><a href="https://aclanthology.org/2024.emnlp-main.842/" class="button">EMNLP 2024 Paper</a></li>
-									<!-- <li><a href="https://youtu.be/HYUOCKE_4hU?si=qeyB7EOA0eWpUkqd" class="button">EMNLP Oral Recording</a></li> -->
-									<!-- <li><a href="https://arxiv.org/pdf/2402.00795" class="button">Arxiv preprint</a></li> -->
-									
+									<li><a href="https://youtu.be/HYUOCKE_4hU?si=qeyB7EOA0eWpUkqd" class="button">EMNLP Oral Recording</a></li>
 								</ul>
-
 							</article>
 
-							<article>
+							<article id="shadow-cones">
 								<header>
-									<h2>Learning in hyperbolic space<br />
+									<h2>Embedding and attention in non-Euclidean spaces</h2>
 								</header>
 								<p>
-									In Euclidean space, the volume of a ball grows polynomially with its radius — but in hyperbolic space, 
-									it grows exponentially. This mirrors a fundamental property of trees: the number of nodes at depth 
-									<em>d</em> grows exponentially with <em>d</em>. This geometric advantage makes hyperbolic space 
-									a natural host for embedding hierarchical data. <br/><br/>
-									
-									We embed hierarchical data by casting shadows: a light source projects opaque objects onto a plane, where 
-									parent-child relationships correspond to shadow containment — a child node is represented by an object 
-									whose shadow falls entirely within its parent's. <br/><br/>
-									
-									This geometric picture yields a fast embedding algorithm: to embed a tree, one simply places 
-									objects such that the containment constraints are satisfied, with deeper nodes casting smaller, 
-									nested shadows. <br/><br/>
-								</p>									
+									Hyperbolic volume grows exponentially with radius—like the branching of a tree—making it a natural host for hierarchical data.
+									Shadow Cones embed partial orders by casting nested shadows: a child lies in its parent’s cone, yielding a fast algorithm for embedding concept graphs.
+								</p>
 								<a href="#" class="image fit"><img src="images/shadow_cone.png" alt="" /></a>
-
 								<ul class="actions special">
 									<li><a href="https://openreview.net/pdf?id=zbKcFZ6Dbp" class="button">ICLR 2024 Paper</a></li>
-									<li><a href="https://www.geogebra.org/classic/rc77cvgy" class="button">interactive demo</a></li>
+									<li><a href="https://www.geogebra.org/classic/rc77cvgy" class="button">Interactive demo</a></li>
 								</ul>
 							</article>
-							
-							<article>
+
+							<!--
+							<article id="anticipatory-waves">
 								<header>
-									<h2>Anticipatory waves in a gigantic marine algae<br />
+									<h2>Anticipatory waves in a gigantic marine algae</h2>
 								</header>
-								<p>How do plants anticipate external environemnts and regulate internal states? </p>
+								<p>How do plants anticipate external environments and regulate internal states?</p>
 								<p>
-									We perturb marine algae with patterned illumination, and analyze the response dynamics using 
+									We perturb marine algae with patterned illumination, and analyze the response dynamics using
 									image analysis and reduced-dimension observables.
 									Our experiment and analysis unveils wave-like patterns entrained by external illuminations, and coupled to a circadian internal oscillator.
-								</p>									
-								<!-- <a href="#" class="image fit"><img src="images/caulerpa_latent_space.png" alt="" /></a> -->
-								<a <a class="image fit"><img src="images/caulerpa_cg.png" alt="" /></a>						
-
+								</p>
+								<a class="image fit"><img src="images/caulerpa_cg.png" alt="" /></a>
 								<ul class="actions special">
-									<li><a href="http://links.springernature.com/f/a/qLRZpXBklOOGj6f6Mjb-Bw~~/AABE5gA~/RgRnAFe-P0SgaHR0cHM6Ly93d3cubmF0dXJlLmNvbS9hcnRpY2xlcy9zNDE0NjctMDIzLTQxODEzLTY_dXRtX3NvdXJjZT1yY3RfY29uZ3JhdGVtYWlsdCZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1vYV8yMDIzMTAwNCZ1dG1fY29udGVudD0xMC4xMDM4L3M0MTQ2Ny0wMjMtNDE4MTMtNlcDc3BjQgplHb7SHWWIqI16UhRlbGRhZC5hZmlrQGdtYWlsLmNvbVgEAAAHLQ~~" class="button">nature communications</a></li>
+									<li><a href="http://links.springernature.com/f/a/qLRZpXBklOOGj6f6Mjb-Bw~~/AABE5gA~/RgRnAFe-P0SgaHR0cHM6Ly93d3cubmF0dXJlLmNvbS9hcnRpY2xlcy9zNDE0NjctMDIzLTQxODEzLTY_dXRtX3NvdXJjZT1yY3RfY29uZ3JhdGVtYWlsdCZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1vYV8yMDIzMTAwNCZ1dG1fY29udGVudD0xMC4xMDM4L3M0MTQ2Ny0wMjMtNDE4MTMtNlcDc3BjQgplHb7SHWWIqI16UhRlbGRhZC5hZmlrQGdtYWlsLmNvbVgEAAAHLQ~~" class="button">Nature Communications</a></li>
 								</ul>
 							</article>
-								
+							-->
+
 								<!-- <article>
 									<header>
 										<h2><a href="#">Diffusion Models <br />
