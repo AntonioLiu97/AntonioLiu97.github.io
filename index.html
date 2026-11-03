@@ -193,6 +193,44 @@
 				scroll-margin-top: 5rem;
 			}
 
+			:is(#ignorance-geometry, #kernel-geometry) [hidden] { display: none; }
+			:is(#ignorance-geometry, #kernel-geometry) canvas { width: 100%; aspect-ratio: 3 / 2; display: block; touch-action: none; cursor: grab; }
+			:is(#ignorance-geometry, #kernel-geometry) canvas.is-dragging { cursor: grabbing; }
+			:is(#ignorance-geometry, #kernel-geometry) .geometry-live { margin-bottom: 2.5rem; }
+			#ignorance-geometry .frequency-legend { display: flex; align-items: center; gap: 0.75rem; font: inherit; }
+			#ignorance-geometry .frequency-legend span { flex: 1; height: 20px; background: linear-gradient(to right, hsl(280,85%,55%), hsl(210,85%,55%), hsl(140,85%,55%), hsl(70,85%,55%), hsl(0,85%,55%)); }
+			#kernel-geometry .trajectory-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1rem; font: inherit; margin-top: 0.5rem; }
+			#kernel-geometry .trajectory-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+			#kernel-geometry .trajectory-legend i { display: inline-block; width: 0.6rem; height: 0.6rem; background: var(--key-color); }
+			#kernel-geometry .trajectory-legend .circle { border-radius: 50%; }
+			#kernel-geometry .trajectory-legend .triangle { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+			#kernel-geometry .trajectory-legend .line { width: 1rem; height: 3px; }
+			#scaling-snapshots [hidden] { display: none; }
+			#scaling-snapshots { margin: 0; }
+			#scaling-snapshots .scaling-live { margin-bottom: 2.5rem; }
+			#scaling-snapshots .scaling-panel + .scaling-panel { margin-top: 1rem; }
+			#scaling-snapshots .plot-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.2rem 0.8rem; text-align: left; }
+			#scaling-snapshots .plot-heading strong { font-size: 0.9rem; }
+			#scaling-snapshots .plot-heading small { color: #697580; font-size: 0.75rem; }
+			#scaling-snapshots svg { width: 100%; display: block; overflow: visible; font-family: inherit; }
+			#scaling-snapshots .plot-legend { display: flex; flex-wrap: wrap; gap: 0.2rem 1rem; justify-content: center; font-size: 0.8rem; line-height: 1.5; margin: 0.2rem 0 0.5rem; }
+			#scaling-snapshots .plot-legend span { display: inline-flex; gap: 0.35rem; align-items: center; }
+			#scaling-snapshots .plot-legend i { width: 0.7rem; height: 3px; display: inline-block; background: var(--key-color); }
+			#scaling-snapshots .plot-legend .dot { width: 0.45rem; height: 0.45rem; border-radius: 50%; }
+			#scaling-snapshots .plot-legend .area { height: 0.55rem; opacity: 0.72; }
+			:is(#scaling-snapshots, #kernel-geometry) .context-control { padding: 0.85rem 1rem; margin-top: 1rem; border: 1px solid #dce2e8; border-radius: 8px; background: #f7f9fb; }
+			:is(#scaling-snapshots, #kernel-geometry) .context-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.2rem 0.6rem; align-items: baseline; }
+			:is(#scaling-snapshots, #kernel-geometry) label { margin: 0; font: inherit; font-weight: 600; }
+			:is(#scaling-snapshots, #kernel-geometry) output { color: #2775aa; font-variant-numeric: tabular-nums; }
+			:is(#scaling-snapshots, #kernel-geometry) input[type="range"] { display: block; width: 100%; height: 32px; margin: 0.35rem 0; accent-color: #3789c9; cursor: pointer; }
+			:is(#scaling-snapshots, #kernel-geometry) input:focus-visible { outline: 2px solid #3789c9; outline-offset: 3px; }
+			:is(#scaling-snapshots, #kernel-geometry) .context-endpoints { display: flex; justify-content: space-between; font-size: 0.75rem; color: #697580; line-height: 1.4; }
+			#scaling-snapshots .panel-number { display: inline-flex; justify-content: center; align-items: center; width: 1.3rem; height: 1.3rem; margin-right: 0.35rem; border-radius: 50%; background: #edf2f6; color: #657382; font-size: 0.7rem; font-variant-numeric: tabular-nums; }
+			#scaling-snapshots .aggregate-panel { margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid #dce2e8; }
+			#scaling-snapshots .state-conditioning { text-align: left; margin: 0.45rem 0 0.2rem; font-size: 0.85rem; color: #56616c; }
+			#scaling-snapshots .current-state { font-variant-numeric: tabular-nums; font-weight: 600; }
+			#scaling-snapshots .state-conditioning small { font-size: 0.75rem; }
+			#scaling-snapshots .plot-legend math { font-size: 1em; }
 		</style>
 	</head>
 	<body class="is-preload">
@@ -233,7 +271,7 @@
 									Broadly speaking, I am interested in using scientific methods to explain, improve, and safeguard the thinking process of AI, and in applying insights from AI to better model physical systems.
 								</p>
 								<p>
-									Prior to Cornell, I received my B.S. in applied physics from Caltech, and my B.A. in physics and film studies from Wesleyan University.
+									Prior to Cornell, I received my B.S. in applied physics from Caltech, and my B.A. in liberal arts from Wesleyan University.
 								</p>
 								<ul class="actions special">
 									<li><a href="https://scholar.google.com/citations?user=UbtOpwcAAAAJ&amp;hl=en" class="button">Google Scholar</a></li>
@@ -246,7 +284,8 @@
 							<h3 class="eyebrow">Research Highlights</h3>
 							<p class="lede">A curated selection, not a <a href="https://scholar.google.com/citations?user=UbtOpwcAAAAJ&amp;hl=en">full publication list</a>.</p>
 							<ol>
-								<li><a href="#jacobian-scopes">Jacobian Scopes</a></li>
+								<li><a href="#direction-of-ignorance">Direction of Ignorance</a></li>
+								<li><a href="#jacobian-scopes">Jacobian Scopes for Causal Attribution</a></li>
 								<li><a href="#incontext-density">LLMs think like a kernel machine</a></li>
 								<li><a href="#diffusion-rnn">Memory–abstraction trade-off in diffusion models</a></li>
 								<li><a href="#incontext-scaling">In-context neural scaling law</a></li>
@@ -257,9 +296,33 @@
 						<!-- Posts -->
 						<section class="posts">
 
+							<article id="direction-of-ignorance">
+								<header>
+									<h2>Direction of Ignorance</h2>
+								</header>
+								<p>
+									What does an LLM predict when context offers few clues?
+									Across Llama, Qwen, Gemma, and Pythia, we find a single direction in the unembedding that encodes a unigram prior—the frequencies of individual tokens in training text.
+									The model relies less on this prior as context becomes more informative; adjusting its strength at inference time can steer predictions and improve mathematical reasoning in Llama-3.2-3B-Instruct.
+								</p>
+								<figure id="ignorance-geometry" style="margin: 0;">
+									<a href="https://arxiv.org/abs/2609.02959" class="image fit geometry-fallback"><img src="images/direction_of_ignorance_panel_a.png" alt="Panel a: Llama-3.2-3B token embeddings colored by frequency, with an arrow marking the prior direction." loading="lazy" /></a>
+									<div class="geometry-live" hidden>
+										<canvas role="img" aria-label="Rotating 3D PCA of Llama-3.2-3B token embeddings. Drag to rotate horizontally or vertically. Rare tokens are purple; common tokens are red. The arrow marks the prior direction."></canvas>
+										<div class="frequency-legend">Rare tokens<span></span>common tokens</div>
+									</div>
+									<figcaption>Panel a: the token-frequency gradient in Llama-3.2-3B's unembedding. The arrow marks the prior direction.</figcaption>
+								</figure>
+								<br>
+								<ul class="actions special">
+									<li><a href="https://arxiv.org/abs/2609.02959" class="button">Paper</a></li>
+									<li><a href="https://github.com/AntonioLiu97/direction-of-ignorance" class="button">GitHub</a></li>
+								</ul>
+							</article>
+
 							<article id="jacobian-scopes">
 								<header>
-									<h2>Jacobian Scopes</h2>
+									<h2>Jacobian Scopes for Causal Attribution</h2>
 								</header>
 								<p>
 									When an LLM answers, which prompt tokens drove that decision?
@@ -284,13 +347,32 @@
 									How do LLMs learn from in-context data?
 									Using Intensive Principal Component Analysis, we visualize their density-estimation trajectories and find an inference process akin to kernel regression, with a kernel whose width and shape adapt as evidence accumulates.
 								</p>
-								<div class="image-container">
-									<a href="#" class="image fit">
-										<img src="images/LLM_InPCA.gif" alt="" style="object-fit: cover; object-position: center; height: 350px; width: 100%;" class="main-image" />
-										<img src="images/LLM_InPCA_legend.png" alt="" class="legend-image" />
-									</a>
-									<figcaption>In-context DE trajectory of LLaMA 2-70b, compared to Gaussian KDE and Bayesian histogram.</figcaption>
-								</div>
+								<figure id="kernel-geometry" style="margin: 0;">
+									<div class="image-container geometry-fallback">
+										<div class="image fit">
+											<img src="images/LLM_InPCA.gif" alt="Rotating inPCA comparison of LLaMA-2 70B, Gaussian KDE, and Bayesian histogram density-estimation trajectories." class="main-image" />
+											<img src="images/LLM_InPCA_legend.png" alt="Legend for the density-estimation trajectories." class="legend-image" />
+										</div>
+									</div>
+									<div class="geometry-live" hidden>
+										<canvas role="img" aria-label="Interactive 3D inPCA comparison of LLaMA-2 70B, Gaussian KDE, and Bayesian histogram learning trajectories, with geodesic, Gaussian manifold, ignorance, and truth references. Drag to rotate horizontally or vertically."></canvas>
+										<div class="trajectory-legend" aria-label="Trajectory legend">
+											<span><i style="--key-color: #1f77b4" aria-hidden="true"></i>LLaMA-2 70B</span>
+											<span><i class="circle" style="--key-color: #ff0000" aria-hidden="true"></i>Kernel smoothing</span>
+											<span><i class="triangle" style="--key-color: #800080" aria-hidden="true"></i>Bayesian histogram</span>
+											<span><i class="line" style="--key-color: #555555" aria-hidden="true"></i>Geodesic</span>
+											<span><i class="line" style="--key-color: #f4a0a0" aria-hidden="true"></i>Gaussian manifold</span>
+											<span><i class="circle" style="--key-color: #888888" aria-hidden="true"></i>Ignorance</span>
+											<span><i class="circle" style="--key-color: #0000ff" aria-hidden="true"></i>Truth</span>
+										</div>
+										<div class="context-control">
+											<div class="context-heading"><label for="kernel-context">In-context data</label><output for="kernel-context" title="Each trajectory point averages four adjacent context lengths.">Step 1 of 200</output></div>
+											<input id="kernel-context" type="range" min="1" max="200" step="1" value="1" aria-label="In-context trajectory progress" aria-valuetext="In-context data: step 1 of 200" />
+											<div class="context-endpoints"><span>Low in-context data</span><span>High in-context data</span></div>
+										</div>
+									</div>
+									<figcaption>In-context density-estimation trajectories of LLaMA-2 70B, Gaussian KDE, and Bayesian histogram, shown in the first three inPCA dimensions.</figcaption>
+								</figure>
 								<br>
 								<ul class="actions special">
 									<li><a href="https://openreview.net/forum?id=semTHoVGsJ" class="button">ICLR 2025 Paper</a></li>
@@ -322,8 +404,33 @@
 									Can a pretrained LLM make sense of an unseen synthetic language—say, symbols from a random Markov process?
 									LLaMA&nbsp;2 models in-context learn a range of stochastic systems, physical and symbolic, revealing an in-context neural scaling law.
 								</p>
-								<a href="#" class="image fit"><img src="images/BM_snapshots.gif" alt="" /></a>
-								<!-- <a href="#" class="image fit"><img src="images/ICL_power_law_stochastic.png" alt="" /></a> -->
+								<figure id="scaling-snapshots">
+									<div class="image fit scaling-fallback"><img src="images/noisy-logistic-preview.svg" alt="Noisy logistic-map states, next-state prediction given the current state, and aggregate in-context loss." /></div>
+									<div class="scaling-live" hidden>
+										<div class="scaling-panel">
+											<div class="plot-heading"><strong><span class="panel-number" aria-hidden="true">1</span>Noisy logistic-map states</strong><small>Rescaled x</small></div>
+											<svg class="sequence-plot" role="img" aria-label="Noisy logistic-map states as markers, with the next state highlighted"></svg>
+											<div class="plot-legend"><span><i class="dot" style="--key-color: #303943" aria-hidden="true"></i>In-context data</span><span><i class="dot" style="--key-color: #b8c3ce" aria-hidden="true"></i>Later states</span><span><i class="dot" style="--key-color: #db4b4b" aria-hidden="true"></i>Next state</span></div>
+										</div>
+										<div class="scaling-panel">
+											<div class="plot-heading"><strong><span class="panel-number" aria-hidden="true">2</span>Next-state prediction</strong><small>Log scale</small></div>
+											<div class="state-conditioning">Given <em>x</em><sub>t</sub> = <span class="current-state"></span> <small>(rescaled)</small></div>
+											<svg class="density-plot" role="img" aria-label="Predicted and true probability density"></svg>
+											<div class="plot-legend"><span><i class="area" style="--key-color: #3789c9" aria-hidden="true"></i><span class="model-label">LLaMA-2 13B prediction</span></span><span><i style="--key-color: #db4b4b" aria-hidden="true"></i>True transition rule <math aria-label="p of x t plus one given x t"><mi>p</mi><mo>(</mo><msub><mi>x</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>|</mo><msub><mi>x</mi><mi>t</mi></msub><mo>)</mo></math></span></div>
+										</div>
+										<div class="aggregate-panel">
+											<div class="plot-heading"><strong><span class="panel-number" aria-hidden="true">3</span>In-context loss</strong><small>Bhattacharyya loss · log–log</small></div>
+											<svg class="scaling-curve" role="img" aria-label="Aggregate in-context loss for the noisy logistic map"></svg>
+											<div class="plot-legend"><span><i style="--key-color: #3789c9" aria-hidden="true"></i>Mean loss</span><span><i class="dot" style="--key-color: #db4b4b" aria-hidden="true"></i>Selected context</span></div>
+										</div>
+										<div class="context-control">
+											<div class="context-heading"><label for="scaling-context">In-context data</label><output for="scaling-context" aria-live="polite">1 observation</output></div>
+											<input id="scaling-context" list="scaling-context-steps" type="range" min="0" max="24" step="1" value="0" aria-label="Amount of in-context data" aria-valuetext="1 in-context observation" />
+											<datalist id="scaling-context-steps"><option value="0"></option><option value="1"></option><option value="2"></option><option value="3"></option><option value="4"></option><option value="5"></option><option value="6"></option><option value="7"></option><option value="8"></option><option value="9"></option><option value="10"></option><option value="11"></option><option value="12"></option><option value="13"></option><option value="14"></option><option value="15"></option><option value="16"></option><option value="17"></option><option value="18"></option><option value="19"></option><option value="20"></option><option value="21"></option><option value="22"></option><option value="23"></option><option value="24"></option></datalist>
+											<div class="context-endpoints"><span>Low · 1 observation</span><span>High · ≈1,000 observations</span></div>
+										</div>
+									</div>
+								</figure>
 								<br/>
 								<ul class="actions special">
 									<li><a href="https://github.com/AntonioLiu97/llmICL" class="button">GitHub</a></li>
@@ -409,7 +516,7 @@
 						<section class="split contact">
 
 							<section>
-								<h3>Last update: April 2026</h3>
+								<h3>Last update: October 2026</h3>
 							</section>
 
 							<section>
@@ -441,6 +548,9 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/ignorance-geometry.js"></script>
+			<script src="assets/js/kernel-geometry.js"></script>
+			<script src="assets/js/scaling-snapshots.js"></script>
 
 	</body>
 </html>
