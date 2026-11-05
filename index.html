@@ -9,6 +9,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/research.css" />
+        <link rel="stylesheet" href="assets/css/jacobian-demo.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 		<style>
@@ -66,11 +67,11 @@
 				text-align: left;
 			}
 
-			#main > #about {
+			#main .intro-columns > #about {
 				padding-bottom: 3rem;
 			}
 
-			#main > #about .about-header {
+			#main .intro-columns > #about .about-header {
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -78,7 +79,7 @@
 				margin: 0 0 3rem 0;
 			}
 
-			#main > #about .about-header .about-portrait {
+			#main .intro-columns > #about .about-header .about-portrait {
 				width: 220px;
 				max-width: 28%;
 				height: auto;
@@ -87,38 +88,38 @@
 				flex-shrink: 0;
 			}
 
-			#main > #about .about-header header.major {
+			#main .intro-columns > #about .about-header header.major {
 				margin: 0;
 				min-width: 0;
 				text-align: left;
 			}
 
-			#main > #about .about-header header.major h2 {
+			#main .intro-columns > #about .about-header header.major h2 {
 				margin: 0;
 			}
 
 			@media screen and (max-width: 736px) {
 
-				#main > #about .about-header {
+				#main .intro-columns > #about .about-header {
 					flex-direction: column;
 					gap: 1.5rem;
 				}
 
-				#main > #about .about-header .about-portrait {
+				#main .intro-columns > #about .about-header .about-portrait {
 					max-width: 55%;
 				}
 
-				#main > #about .about-header header.major {
+				#main .intro-columns > #about .about-header header.major {
 					text-align: center;
 				}
 
 			}
 
-			#main > #about .featured-bio ul.actions {
+			#main .intro-columns > #about .featured-bio ul.actions {
 				margin-bottom: 0;
 			}
 
-			#main > .highlights-index {
+			#main .intro-columns > .highlights-index {
 				text-align: center;
 				max-width: 46rem;
 				margin: 0 auto;
@@ -189,14 +190,126 @@
 				border-bottom-color: transparent;
 			}
 
+			#main > .intro-columns {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				position: relative;
+				gap: 6rem;
+				padding: 3rem;
+				align-items: center;
+			}
+
+			#main > .intro-columns::before {
+				content: '';
+				position: absolute;
+				left: 50%;
+				top: 3rem;
+				bottom: 3rem;
+				width: 3px;
+				transform: translateX(-50%);
+				background: #0a7ea8;
+			}
+
+			#main .intro-columns > #about { padding: 0; min-width: 0; }
+			#main .intro-columns > #about .about-header { justify-content: flex-start; gap: 1.5rem; margin-bottom: 1.5rem; }
+			#main .intro-columns > #about .about-header .about-portrait { width: 130px; max-width: 30%; }
+			#main .intro-columns > #about .about-header header.major h2 { font-size: 2rem; line-height: 1.2; }
+			#main .intro-columns > #about .featured-bio ul.actions { justify-content: flex-start; flex-wrap: wrap; gap: 0.75rem; }
+			#main .intro-columns > #about .featured-bio ul.actions li { padding: 0; }
+			#main .intro-columns > .highlights-index {
+				max-width: none;
+				margin: 0;
+				padding: 1.5rem 0;
+				border-left: 0;
+				text-align: left;
+			}
+			.intro-columns .highlights-index .eyebrow:before { display: none; }
+			.intro-columns .highlights-index .lede { text-align: left; }
+			.intro-columns .highlights-index ol li { margin-bottom: 1rem; }
+
+			@media screen and (max-width: 980px) {
+				#main > .intro-columns { gap: 4rem; padding: 2.5rem 2rem; }
+				#main > .intro-columns::before { top: 2.5rem; bottom: 2.5rem; }
+			}
+			@media screen and (max-width: 736px) {
+				#main > .intro-columns { grid-template-columns: minmax(0, 1fr); gap: 2rem; padding: 2rem 1.5rem; }
+				#main > .intro-columns::before { display: none; }
+				#main .intro-columns > #about .about-header { align-items: center; }
+				#main .intro-columns > #about .about-header .about-portrait { width: 160px; max-width: 55%; }
+				#main .intro-columns > #about .featured-bio ul.actions { justify-content: center; }
+				#main .intro-columns > .highlights-index { border-left: 0; border-top: 3px solid #0a7ea8; padding: 2rem 0 0; }
+			}
+
+			.featured-bio .bio-links {
+				display: grid;
+				grid-template-columns: repeat(4, minmax(0, 1fr));
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				text-align: center;
+			}
+			.featured-bio .bio-links li { padding: 0; }
+			.featured-bio .bio-links a {
+				display: inline-flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-start;
+				gap: 0.35rem;
+				width: 100%;
+				min-height: 48px;
+				border: 0;
+				font-size: 1.65rem;
+				color: #0a7ea8;
+			}
+			.featured-bio .bio-links a .label {
+				display: block;
+				font-size: 0.7rem;
+				line-height: 1.4;
+				color: #0a7ea8;
+			}
+
+			.featured-bio .bio-links a:focus-visible { outline: 2px solid #0a7ea8; outline-offset: 4px; border-radius: 4px; }
+
 			#main > .posts > article {
 				scroll-margin-top: 5rem;
 			}
 
-			:is(#ignorance-geometry, #kernel-geometry) [hidden] { display: none; }
-			:is(#ignorance-geometry, #kernel-geometry) canvas { width: 100%; aspect-ratio: 3 / 2; display: block; touch-action: none; cursor: grab; }
-			:is(#ignorance-geometry, #kernel-geometry) canvas.is-dragging { cursor: grabbing; }
-			:is(#ignorance-geometry, #kernel-geometry) .geometry-live { margin-bottom: 2.5rem; }
+			:is(#ignorance-geometry, #kernel-geometry, #diffusion-geometry) [hidden] { display: none; }
+			:is(#ignorance-geometry, #kernel-geometry, #diffusion-geometry) canvas { width: 100%; aspect-ratio: 3 / 2; display: block; touch-action: none; cursor: grab; }
+			:is(#ignorance-geometry, #kernel-geometry, #diffusion-geometry) canvas.is-dragging { cursor: grabbing; }
+			:is(#ignorance-geometry, #kernel-geometry, #diffusion-geometry) .geometry-live { margin-bottom: 2.5rem; }
+			#diffusion-geometry .context-heading { flex-direction: column; align-items: flex-start; text-align: left; }
+
+			#diffusion-geometry .diffusion-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 0.9rem; font-size: 0.85rem; }
+			#diffusion-geometry .diffusion-legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+			#diffusion-geometry .diffusion-legend i { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--key-color); }
+			#diffusion-geometry #diffusion-time { appearance: none; -webkit-appearance: none; border: 0; padding: 0; background: linear-gradient(to right, #83b8dc 0% 25%, #82c6ac 25% 50%, #d6b67b 50% 75%, #b39bcd 75% 100%) center / calc(100% - 20px) 12px no-repeat; }
+			#diffusion-time::-webkit-slider-runnable-track { height: 12px; background: transparent; }
+			#diffusion-time::-moz-range-track { height: 12px; background: transparent; }
+			#diffusion-time::-moz-range-progress { background: transparent; }
+			#diffusion-time::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; margin-top: -4px; border: 3px solid white; border-radius: 50%; background: #285b7e; box-shadow: 0 0 0 1px #285b7e; }
+			#diffusion-time::-moz-range-thumb { box-sizing: border-box; width: 20px; height: 20px; border: 3px solid white; border-radius: 50%; background: #285b7e; box-shadow: 0 0 0 1px #285b7e; }
+			#diffusion-geometry .time-regimes { position: relative; height: 3.2rem; margin: 0 10px; font-size: 0.72rem; line-height: 1.35; color: #535e69; }
+			#diffusion-geometry .time-regimes span { position: absolute; top: 0; text-align: center; white-space: nowrap; transform: translateX(-50%); }
+			#diffusion-geometry .time-regimes span:first-child { left: 12.5%; text-align: center; transform: translateX(-50%); }
+			#diffusion-geometry .time-regimes span:last-child { left: 87.5%; text-align: center; transform: translateX(-50%); }
+
+			#shadow-cone-geometry [hidden] { display: none; }
+			#shadow-cone-geometry svg { display: block; width: 100%; max-width: 560px; margin: 0 auto; touch-action: none; }
+			#shadow-cone-geometry .embedding-node { cursor: grab; outline: none; }
+			#shadow-cone-geometry .embedding-node:focus-visible > circle:nth-child(2) { stroke: #102f50; stroke-width: 3; }
+			#shadow-cone-geometry svg.is-dragging, #shadow-cone-geometry svg.is-dragging .embedding-node { cursor: grabbing; }
+			#shadow-cone-geometry .shadow-controls { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 0.7rem; }
+			#shadow-cone-geometry .shadow-controls p { margin: 0; font-size: 0.8rem; line-height: 1.6; }
+			#shadow-cone-geometry button { flex-shrink: 0; padding: 0 1.1rem; font-size: 0.65rem; height: 2.4rem; line-height: 2.4rem; }
+			#shadow-cone-geometry .shadow-relations { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.2rem 1rem; text-align: center; margin: 0.3rem 0 0.7rem; }
+			#shadow-cone-geometry .shadow-relation { font: 1.5rem Georgia, serif; color: #67727c; }
+			#shadow-cone-geometry .shadow-relation.is-comparable { color: #1768a6; }
+			#shadow-cone-geometry .shadow-key { text-align: center; font-size: 0.8rem; line-height: 1.6; color: #66717c; margin: 0 0 1.5rem; }
+			#shadow-cone-geometry .shadow-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+			#ignorance-geometry .prediction-prompt { margin: 0 0 0.4rem; text-align: center; min-height: 3em; }
+			#ignorance-geometry .prediction-prompt strong { color: #2775aa; }
+			#ignorance-geometry .prediction-metrics { font-size: 0.8rem; color: #697580; margin-top: 0.5rem; text-align: center; }
 			#ignorance-geometry .frequency-legend { display: flex; align-items: center; gap: 0.75rem; font: inherit; }
 			#ignorance-geometry .frequency-legend span { flex: 1; height: 20px; background: linear-gradient(to right, hsl(280,85%,55%), hsl(210,85%,55%), hsl(140,85%,55%), hsl(70,85%,55%), hsl(0,85%,55%)); }
 			#kernel-geometry .trajectory-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1rem; font: inherit; margin-top: 0.5rem; }
@@ -218,47 +331,37 @@
 			#scaling-snapshots .plot-legend i { width: 0.7rem; height: 3px; display: inline-block; background: var(--key-color); }
 			#scaling-snapshots .plot-legend .dot { width: 0.45rem; height: 0.45rem; border-radius: 50%; }
 			#scaling-snapshots .plot-legend .area { height: 0.55rem; opacity: 0.72; }
-			:is(#scaling-snapshots, #kernel-geometry) .context-control { padding: 0.85rem 1rem; margin-top: 1rem; border: 1px solid #dce2e8; border-radius: 8px; background: #f7f9fb; }
-			:is(#scaling-snapshots, #kernel-geometry) .context-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.2rem 0.6rem; align-items: baseline; }
-			:is(#scaling-snapshots, #kernel-geometry) label { margin: 0; font: inherit; font-weight: 600; }
-			:is(#scaling-snapshots, #kernel-geometry) output { color: #2775aa; font-variant-numeric: tabular-nums; }
-			:is(#scaling-snapshots, #kernel-geometry) input[type="range"] { display: block; width: 100%; height: 32px; margin: 0.35rem 0; accent-color: #3789c9; cursor: pointer; }
-			:is(#scaling-snapshots, #kernel-geometry) input:focus-visible { outline: 2px solid #3789c9; outline-offset: 3px; }
-			:is(#scaling-snapshots, #kernel-geometry) .context-endpoints { display: flex; justify-content: space-between; font-size: 0.75rem; color: #697580; line-height: 1.4; }
+			:is(#scaling-snapshots, #kernel-geometry, #ignorance-geometry, #diffusion-geometry) .context-control { padding: 0.85rem 1rem; margin-top: 1rem; border: 1px solid #dce2e8; border-radius: 8px; background: #f7f9fb; }
+			:is(#scaling-snapshots, #kernel-geometry, #ignorance-geometry, #diffusion-geometry) .context-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.2rem 0.6rem; align-items: baseline; }
+			:is(#scaling-snapshots, #kernel-geometry, #ignorance-geometry, #diffusion-geometry) label { margin: 0; font: inherit; font-weight: 600; }
+			:is(#scaling-snapshots, #kernel-geometry, #ignorance-geometry, #diffusion-geometry) output { color: #2775aa; font-variant-numeric: tabular-nums; }
+			:is(#scaling-snapshots, #kernel-geometry, #ignorance-geometry, #diffusion-geometry) input[type="range"] { display: block; width: 100%; height: 32px; margin: 0.35rem 0; accent-color: #3789c9; cursor: pointer; }
+			:is(#scaling-snapshots, #kernel-geometry, #ignorance-geometry, #diffusion-geometry) input:focus-visible { outline: 2px solid #3789c9; outline-offset: 3px; }
+			:is(#scaling-snapshots, #kernel-geometry, #ignorance-geometry, #diffusion-geometry) .context-endpoints { display: flex; justify-content: space-between; font-size: 0.75rem; color: #697580; line-height: 1.4; }
 			#scaling-snapshots .panel-number { display: inline-flex; justify-content: center; align-items: center; width: 1.3rem; height: 1.3rem; margin-right: 0.35rem; border-radius: 50%; background: #edf2f6; color: #657382; font-size: 0.7rem; font-variant-numeric: tabular-nums; }
 			#scaling-snapshots .aggregate-panel { margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid #dce2e8; }
 			#scaling-snapshots .state-conditioning { text-align: left; margin: 0.45rem 0 0.2rem; font-size: 0.85rem; color: #56616c; }
 			#scaling-snapshots .current-state { font-variant-numeric: tabular-nums; font-weight: 600; }
 			#scaling-snapshots .state-conditioning small { font-size: 0.75rem; }
 			#scaling-snapshots .plot-legend math { font-size: 1em; }
-		</style>
+		    #research-stats { margin: 0 0 1.5rem; }
+            #research-stats [hidden], #research-stats[hidden] { display: none; }
+            #research-stats .stats-values { display: grid; gap: 0.6rem; text-align: center; }
+            #research-stats .stats-values a { border: 0; display: flex; flex-direction: column; color: #0a7ea8; }
+            #research-stats strong { color: inherit; font-size: 1.6rem; line-height: 1.3; }
+            #research-stats span { font-size: 0.65rem; }
+            #main .featured-bio #research-stats .stats-source { text-align: center; color: #697b86; font-size: 0.6rem; margin: 0.5rem 0 0; }
+        </style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
 
-				<!-- Header -->
-					<header id="header">
-					</header>
-
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">Home</a></li>
-							<li><a href="index_1.html">Gallery</a></li>
-						</ul>
-						<ul class="icons">
-							<!-- To hook social media: fill in hashtags -->
-							<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
-							<li><a href="https://www.linkedin.com/in/toni-jb-liu" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://github.com/AntonioLiu97" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
-
 				<!-- Main -->
 					<div id="main">
 
+						<div class="intro-columns">
 						<article class="post featured" id="about">
 							<div class="about-header">
 								<img class="about-portrait" src="images/profile_close.jpg" alt="Portrait of Toni J.B. Liu" />
@@ -267,15 +370,26 @@
 								</header>
 							</div>
 							<div class="featured-bio">
-								<p style="margin-top: 0rem;">I am a fifth-year physics PhD student at Cornell University, advised by Professor <a href="https://www.duffield.cornell.edu/people/christopher-j-earls/">Chris Earls</a>.
-									Broadly speaking, I am interested in using scientific methods to explain, improve, and safeguard the thinking process of AI, and in applying insights from AI to better model physical systems.
+								<p style="margin-top: 0rem;">I am a PhD candidate in physics at Cornell University, with an expected graduation date of May 2027.
+									I use scientific methods to interpret, improve, and safeguard AI reasoning, and apply insights from AI to model physical systems.
+									My first-author work has appeared at NeurIPS, ICLR, ICML, and EMNLP.
 								</p>
 								<p>
-									Prior to Cornell, I received my B.S. in applied physics from Caltech, and my B.A. in liberal arts from Wesleyan University.
+									Before joining Cornell, I earned a B.S. in applied physics from Caltech and a B.A. in liberal arts from Wesleyan University.
 								</p>
-								<ul class="actions special">
-									<li><a href="https://scholar.google.com/citations?user=UbtOpwcAAAAJ&amp;hl=en" class="button">Google Scholar</a></li>
-									<li><a href="files/Toni_Liu_CV.pdf" class="button">Curriculum Vitae</a></li>
+								<div id="research-stats" aria-label="Research statistics" hidden>
+                                    <div class="stats-values">
+                                        <a data-stat="publications" href="https://scholar.google.com/citations?user=UbtOpwcAAAAJ&amp;hl=en" title="Includes preprints; counts each work once" hidden><strong></strong><span>Papers</span></a>
+                                        <a data-stat="first-author" href="https://scholar.google.com/citations?user=UbtOpwcAAAAJ&amp;hl=en" title="Includes co-first-author papers" hidden><strong></strong><span>First / co-first</span></a>
+                                        <a data-stat="citations" href="https://scholar.google.com/citations?user=UbtOpwcAAAAJ&amp;hl=en" hidden><strong></strong><span>Citations</span></a>
+                                    </div>
+                                    <p class="stats-source" hidden>Google Scholar · Updated <time></time></p>
+                                </div>
+                                <ul class="bio-links" aria-label="Profiles and CV">
+									<li><a href="https://www.linkedin.com/in/toni-jb-liu" class="icon brands fa-linkedin" title="LinkedIn"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/AntonioLiu97" class="icon brands fa-github" title="GitHub"><span class="label">GitHub</span></a></li>
+									<li><a href="https://scholar.google.com/citations?user=UbtOpwcAAAAJ&amp;hl=en" class="icon solid fa-graduation-cap" title="Google Scholar"><span class="label">Google Scholar</span></a></li>
+									<li><a href="files/Toni_Liu_CV.pdf" class="icon regular fa-file-alt" title="Curriculum Vitae"><span class="label">CV</span></a></li>
 								</ul>
 							</div>
 						</article>
@@ -287,11 +401,13 @@
 								<li><a href="#direction-of-ignorance">Direction of Ignorance</a></li>
 								<li><a href="#jacobian-scopes">Jacobian Scopes for Causal Attribution</a></li>
 								<li><a href="#incontext-density">LLMs think like a kernel machine</a></li>
-								<li><a href="#diffusion-rnn">Memory–abstraction trade-off in diffusion models</a></li>
+								<li><a href="#diffusion-rnn">Memorization and generalization in diffusion models</a></li>
 								<li><a href="#incontext-scaling">In-context neural scaling law</a></li>
-								<li><a href="#shadow-cones">Embedding and attention in non-Euclidean spaces</a></li>
+								<li><a href="#shadow-cones">Hyperbolic Embedding and Attention</a></li>
 							</ol>
 						</section>
+
+						</div>
 
 						<!-- Posts -->
 						<section class="posts">
@@ -310,6 +426,13 @@
 									<div class="geometry-live" hidden>
 										<canvas role="img" aria-label="Rotating 3D PCA of Llama-3.2-3B token embeddings. Drag to rotate horizontally or vertically. Rare tokens are purple; common tokens are red. The arrow marks the prior direction."></canvas>
 										<div class="frequency-legend">Rare tokens<span></span>common tokens</div>
+										<div class="context-control">
+											<p class="prediction-prompt"><strong class="prompt-context">In this world</strong>, we can find the …</p>
+											<div class="context-heading"><label for="ignorance-context">Context informativeness</label><output for="ignorance-context">1 of 6</output></div>
+											<input id="ignorance-context" type="range" min="0" max="5" step="1" value="0" />
+											<div class="context-endpoints"><span>Less informative</span><span>More informative</span></div>
+											<div class="prediction-metrics" aria-live="polite"></div>
+										</div>
 									</div>
 									<figcaption>Panel a: the token-frequency gradient in Llama-3.2-3B's unembedding. The arrow marks the prior direction.</figcaption>
 								</figure>
@@ -328,9 +451,26 @@
 									When an LLM answers, which prompt tokens drove that decision?
 									Jacobian Scopes attribute predictions—logits, full distributions, and uncertainty—to inputs via fast vector-Jacobian products, with strong performance on attribution benchmarks.
 								</p>
-								<a href="https://huggingface.co/spaces/Typony/JacobianScopes" class="image fit"><img src="images/liberal_conservative.png" alt="Jacobian Scope visualization: per-token influence on predicting liberal versus conservative from the same prompt." /></a>
-								<figcaption>Semantic Scope reveals the potential for political bias that may be present in models such as LLaMA3.2. The prediction for the subject being a “liberal” is
-									attributed to the input token “Columbia”, while “conservative” to the token pairs for “the South”.</figcaption>
+                                <figure id="jacobian-demo">
+                                    <div class="scope-fallback"><img src="images/liberal_conservative.png" class="main-image" alt="Original LLaMA illustration comparing token sensitivity for liberal and conservative predictions." /></div>
+                                    <div class="scope-live" hidden>
+                                        <label for="scope-example">Explore a prompt</label>
+                                        <select id="scope-example" aria-label="Attribution example"></select>
+                                        <div class="scope-tabs" role="group" aria-label="Attribution scope">
+                                            <button type="button" data-scope="semantic" aria-pressed="true">Semantic</button>
+                                            <button type="button" data-scope="fisher" aria-pressed="false">Fisher</button>
+                                            <button type="button" data-scope="temperature" aria-pressed="false">Temperature</button>
+                                        </div>
+                                        <p class="scope-question"></p>
+                                        <p class="scope-target-label"></p>
+                                        <div class="scope-targets" role="group" aria-label="Cached next-token predictions"></div>
+                                        <div class="scope-prompt" role="group" aria-label="Input tokens colored by relative sensitivity"></div>
+                                        <div class="scope-scale"><span>Less sensitive</span><i aria-hidden="true"></i><span>More sensitive</span></div>
+                                        <p class="scope-readout" aria-live="polite"></p>
+                                        <p class="scope-example-note"></p>
+                                    </div>
+                                    <figcaption><span class="scope-caption">Original LLaMA illustration: different prediction targets highlight different prompt tokens. </span><a href="assets/data/jacobian-demo.json">Data</a> · <a href="scripts/export_jacobian_demo.py">Reproduce</a></figcaption>
+                                </figure>
 								<br>
 								<ul class="actions special">
 									<li><a href="https://huggingface.co/spaces/Typony/JacobianScopes" class="button">Live demo (Hugging Face)</a></li>
@@ -366,9 +506,9 @@
 											<span><i class="circle" style="--key-color: #0000ff" aria-hidden="true"></i>Truth</span>
 										</div>
 										<div class="context-control">
-											<div class="context-heading"><label for="kernel-context">In-context data</label><output for="kernel-context" title="Each trajectory point averages four adjacent context lengths.">Step 1 of 200</output></div>
+											<div class="context-heading"><label for="kernel-context">In-context data</label><output for="kernel-context" title="Each trajectory point averages four adjacent context lengths.">1</output></div>
 											<input id="kernel-context" type="range" min="1" max="200" step="1" value="1" aria-label="In-context trajectory progress" aria-valuetext="In-context data: step 1 of 200" />
-											<div class="context-endpoints"><span>Low in-context data</span><span>High in-context data</span></div>
+											<div class="context-endpoints"><span>few data</span><span>some data</span><span>many data</span></div>
 										</div>
 									</div>
 									<figcaption>In-context density-estimation trajectories of LLaMA-2 70B, Gaussian KDE, and Bayesian histogram, shown in the first three inPCA dimensions.</figcaption>
@@ -382,17 +522,34 @@
 
 							<article id="diffusion-rnn">
 								<header>
-									<h2>Memory–abstraction trade-off in diffusion models</h2>
+									<h2>Memorization and generalization in diffusion models</h2>
 								</header>
 								<p>
 									What separates abstract thoughts from concrete memories?
 									Treating memories as fixed points, we cast abstraction as a hierarchy of slow manifolds and build a diffusion RNN that extracts them from data—with an analytic theory linking data distributions to the learned manifolds.
 								</p>
-								<a href="#" class="image fit"><img src="images/digit0127_alpha1_slow_manifold_cropped.gif" alt="" /></a>
-								<figcaption>Diffusion RNN extracts a hierarchy of slow manifolds (red) from dimensionally reduced MNIST data.</figcaption>
+								<figure id="diffusion-geometry" style="margin: 0;">
+									<div class="geometry-fallback image fit"><img src="images/digit0127_alpha1_slow_manifold_cropped.gif" alt="Diffusion RNN states converge toward slow manifolds among MNIST latent embeddings." loading="lazy" /></div>
+									<div class="geometry-live" hidden>
+										<canvas role="img" aria-label="Rotating 3D MNIST latent space. Red points are evolving diffusion RNN states. Drag to rotate; use the time slider to explore their evolution."></canvas>
+										<div class="diffusion-legend"><span><i style="--key-color: #e03336"></i>RNN states</span><span><i style="--key-color: #1f77b4"></i>0</span><span><i style="--key-color: #ff7f0e"></i>1</span><span><i style="--key-color: #2ca02c"></i>2</span><span><i style="--key-color: #7f7f7f"></i>7</span></div>
+										<div class="context-control">
+											<div class="context-heading"><label for="diffusion-time">Recurrent time</label><output for="diffusion-time">t = 3</output></div>
+											<input id="diffusion-time" aria-describedby="diffusion-regimes" type="range" min="0" max="4" step="any" value="0.5" />
+											<div class="time-regimes" id="diffusion-regimes">
+												<span title="Time 0–6">3D<br>volume</span>
+												<span style="left: 37.5%" title="Time 6–14">2D<br>sheets</span>
+												<span style="left: 62.5%" title="Time 14–70">1D<br>lines</span>
+												<span title="Time 70–80">0D fixed<br>points</span>
+											</div>
+										</div>
+									</div>
+									<figcaption>Diffusion RNN states (red) evolve toward slow manifolds among MNIST digits 0, 1, 2, and 7 in a three-dimensional VAE latent space.</figcaption>
+								</figure>
 								<br>
 								<ul class="actions special">
-									<li><a href="https://march.aps.org/sessions/M28/12" class="button">APS 2024 Abstract</a></li>
+									<li><a href="research/diffusion-rnn/" class="button">Interactive article</a></li>
+									<li><a href="https://meetings.aps.org/Meeting/MAR24/Session/M28.12" class="button">APS 2024 Abstract</a></li>
 								</ul>
 							</article>
 
@@ -424,7 +581,7 @@
 											<div class="plot-legend"><span><i style="--key-color: #3789c9" aria-hidden="true"></i>Mean loss</span><span><i class="dot" style="--key-color: #db4b4b" aria-hidden="true"></i>Selected context</span></div>
 										</div>
 										<div class="context-control">
-											<div class="context-heading"><label for="scaling-context">In-context data</label><output for="scaling-context" aria-live="polite">1 observation</output></div>
+											<div class="context-heading"><label for="scaling-context">In-context data</label><output for="scaling-context" aria-live="polite">1</output></div>
 											<input id="scaling-context" list="scaling-context-steps" type="range" min="0" max="24" step="1" value="0" aria-label="Amount of in-context data" aria-valuetext="1 in-context observation" />
 											<datalist id="scaling-context-steps"><option value="0"></option><option value="1"></option><option value="2"></option><option value="3"></option><option value="4"></option><option value="5"></option><option value="6"></option><option value="7"></option><option value="8"></option><option value="9"></option><option value="10"></option><option value="11"></option><option value="12"></option><option value="13"></option><option value="14"></option><option value="15"></option><option value="16"></option><option value="17"></option><option value="18"></option><option value="19"></option><option value="20"></option><option value="21"></option><option value="22"></option><option value="23"></option><option value="24"></option></datalist>
 											<div class="context-endpoints"><span>Low · 1 observation</span><span>High · ≈1,000 observations</span></div>
@@ -441,16 +598,25 @@
 
 							<article id="shadow-cones">
 								<header>
-									<h2>Embedding and attention in non-Euclidean spaces</h2>
+									<h2>Hyperbolic Embedding and Attention</h2>
 								</header>
 								<p>
 									Hyperbolic volume grows exponentially with radius—like the branching of a tree—making it a natural host for hierarchical data.
 									Shadow Cones embed partial orders by casting nested shadows: a child lies in its parent’s cone, yielding a fast algorithm for embedding concept graphs.
 								</p>
-								<a href="#" class="image fit"><img src="images/shadow_cone.png" alt="" /></a>
+								<figure id="shadow-cone-geometry" style="margin: 0;">
+									<img class="image fit shadow-fallback" src="images/shadow_cone.png" alt="Penumbral shadow cones in a Poincaré disk, with embeddings u, v, w, x, y, z and their partial-order relations." loading="lazy" />
+									<div class="shadow-live" hidden>
+										<div class="shadow-controls"><p>Drag any blue embedding.</p><button type="button">Reset</button></div>
+										<svg viewBox="0 0 500 500" role="group" aria-label="Interactive penumbral shadow cones in the Poincaré disk. Six draggable blue embeddings surround the red light source S."></svg>
+										<div class="shadow-relations" aria-label="Partial-order relations"></div>
+										<p class="shadow-key">a ≼ b: b lies in a’s shadow · a ∥ b: incomparable<br>Red: light source and rays · Shaded regions: shadow cones</p>
+										<div class="shadow-status" role="status" aria-live="polite" aria-atomic="true"></div>
+									</div>
+								</figure>
 								<ul class="actions special">
-									<li><a href="https://openreview.net/pdf?id=zbKcFZ6Dbp" class="button">ICLR 2024 Paper</a></li>
-									<li><a href="https://www.geogebra.org/classic/rc77cvgy" class="button">Interactive demo</a></li>
+									<li><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/e5b6eb1dbabff82838d5e99f62de37c8-Abstract-Conference.html" class="button">Hyperbolic Embedding</a></li>
+									<li><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/a17251f8d595179eef5e466b1f5f7a85-Abstract-Conference.html" class="button">Hyperbolic attention</a></li>
 								</ul>
 							</article>
 
@@ -548,8 +714,12 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+            <script src="assets/js/jacobian-demo.js"></script>
+            <script src="assets/js/research-stats.js"></script>
 			<script src="assets/js/ignorance-geometry.js"></script>
+			<script src="assets/js/shadow-cones.js"></script>
 			<script src="assets/js/kernel-geometry.js"></script>
+			<script src="assets/js/diffusion-geometry.js"></script>
 			<script src="assets/js/scaling-snapshots.js"></script>
 
 	</body>

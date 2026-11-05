@@ -28,7 +28,7 @@
     const boxExtents=lower.map((v,i)=>Math.max((upper[i]-v)*0.55,radius*0.15));
     function draw() {
       const step=Math.max(1,Math.min(stepCount,Number(slider.value)));
-      progress.textContent=`Step ${step} of ${stepCount}`;
+      progress.textContent=String(step);
       slider.setAttribute('aria-valuetext',`In-context data: step ${step} of ${stepCount}`);
       const width = canvas.clientWidth;
       if (!width) return;

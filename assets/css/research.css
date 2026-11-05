@@ -3774,8 +3774,8 @@ input, select, textarea {
 
 		#main > * {
 			padding: 4rem 4rem 2rem 4rem ;
-			border-top: solid 15px ;
-			border-color: rgba(100,100,100,0.9);
+			border-top: solid 2px;
+			border-color: #a4c3d1;
 			margin: 0;
 		}
 
@@ -3871,10 +3871,10 @@ input, select, textarea {
 			}
 
 			#main > .posts > article {
-				border-color: rgba(100,100,100,0.5);
-				border-left-width: 15px;
+				border-color: #a4c3d1;
+				border-left-width: 2px;
 				border-style: solid;
-				border-top-width: 15px;
+				border-top-width: 2px;
 				text-align: center;
 			}
 
@@ -3915,11 +3915,11 @@ input, select, textarea {
 				}
 
 				#main > .posts > article:nth-child(2n - 1) {
-					border-left-width: 6px;
+					border-left-width: 1px;
 				}
 
 				#main > .posts > article:nth-child(-n + 2) {
-					border-top-width: 6px;
+					border-top-width: 2px;
 				}
 
 				#main > .posts > article:nth-child(n) {

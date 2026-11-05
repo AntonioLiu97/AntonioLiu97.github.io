@@ -123,7 +123,8 @@
 	// Background.
 		$wrapper._parallax(0.925);
 
-	// Nav Panel.
+	// Nav Panel. Only create mobile navigation when the page has a nav bar.
+	if ($nav.length) {
 
 		// Toggle.
 			$navPanelToggle = $(
@@ -195,6 +196,8 @@
 				&&	browser.osVersion < 10)
 					$navPanel
 						.css('transition', 'none');
+
+	}
 
 	// Intro.
 		var $intro = $('#intro');

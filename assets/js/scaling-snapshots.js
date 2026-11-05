@@ -43,7 +43,7 @@
       const frame=data.frames[index],n=frame.context;
       state.textContent=data.series[n-1].toFixed(2);
       modelLabel.textContent=`${data.model} prediction`;
-      output.textContent=`${n===986?'≈1,000':n.toLocaleString()} ${n===1?'observation':'observations'}`;
+      output.textContent=n===986?'≈1,000':n.toLocaleString();
       output.title=n===986?'Rounded display; the original cached snapshot contains 986 observations.':`${n} observations`;
       slider.setAttribute('aria-valuetext',`${n} in-context ${n===1?'observation':'observations'}`);
       const width=live.clientWidth;

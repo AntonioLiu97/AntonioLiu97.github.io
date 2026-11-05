@@ -27,7 +27,9 @@ ids = np.flatnonzero(p > 0)
 ids = ids[np.argsort(p[ids])[::-1]]
 # Preserve the original frequency grid while downsampling the displayed tokens.
 ranks = np.linspace(0, len(ids)-1, 4000).astype(int)
-ranks = ranks[np.array([i * 3999 // 999 for i in range(1000)])
+ranks = ranks[np.array([i * 3999 // 999 for i in range(1000)])]
 coords = (np.asarray(w[ids[ranks]]) - mean) @ basis
 assert np.isfinite(coords).all() and np.linalg.norm(prior) > 0
-print(json.dumps({'model':'Llama-3.2-3B','method':'Sampled PCA (8,000 embeddings, seed 0); 1,000 frequency-stratified tokens', 'points':np.round(coords,5).tolist(), 'ranks':np.round(ranks/(len(ids)-1),5).tolist(), 'prior':np.round(prior/np.linalg.norm(prior),6).tolist(), 'variance':np.round(singular[:3]**2/(x*x).sum(),5).tolist()},separators=(',',':')))
+geometry = {'model':'Llama-3.2-3B','method':'Sampled PCA (8,000 embeddings, seed 0); 1,000 frequency-stratified tokens', 'points':np.round(coords,5).tolist(), 'ranks':np.round(ranks/(len(ids)-1),5).tolist(), 'prior':np.round(prior/np.linalg.norm(prior),6).tolist(), 'variance':np.round(singular[:3]**2/(x*x).sum(),5).tolist()}
+if __name__ == '__main__':
+    print(json.dumps(geometry, separators=(',', ':')))

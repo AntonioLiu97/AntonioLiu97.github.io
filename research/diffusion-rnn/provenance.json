@@ -1,0 +1,16 @@
+{
+  "research_commit": "ab5cb75a3f08327a82ac808d2b03eb9a4be814ef",
+  "primary_source": {
+    "title": "Diffusion RNN: a model of memory and abstraction",
+    "file": "APS Diffusion_RNN_short.pptx",
+    "slides": 41,
+    "speaker_notes_used": true,
+    "sha256": "2a4cf312335f054288f8c310765a99b7a46a6f56411d75c20bb81ea1f6781a0e"
+  },
+  "artifacts": {
+    "assets/data/diffusion-geometry.json": "962a072820c5e347a22f6ba30ef23b493266a82ca1dabd745b6767c899792327",
+    "assets/data/diffusion-control.json": "51e84da3e4714bd402e835e7e7b7d86447cc38003ceb0e2aec68a00ade10c349",
+    "scripts/export_diffusion_geometry.py": "e879118fed439193b0520d30bd56e262daed2eba3f0f8eb28e4659af7730d634",
+    "scripts/export_diffusion_control.py": "3025bab0589b6ab31f371fcc381160335495d8488fa9e930ac1dbf869ca8553e"
+  }
+}
